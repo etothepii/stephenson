@@ -1,4 +1,4 @@
 georgecanning
 =============
 
-Code for harvisting data on Domestic Dwellings from the Valuation Office Agency
+A bare bones java project which can be forked from to quickly get going on a new project with minimal faff.
