@@ -2,12 +2,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>uk.co.epii.conservatives</groupId>
+  <groupId>uk.co.epii</groupId>
   <artifactId>georgecanning</artifactId>
   <version>0.0.1</version>
   <packaging>jar</packaging>
   
-  <description>Standard Empty Java Maven Project</description>
+  <description>projectdescription</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
