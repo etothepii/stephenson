@@ -1,0 +1,3 @@
+#!/bin/bash
+lowercase=`echo $1 | gsed "s/ //g" | gsed "s/.*/\L\0/"`
+echo $lowercase
