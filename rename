@@ -4,6 +4,7 @@ lowercase=`echo $nospaces | gsed "s/.*/\L\0/"`
 find . -type f | grep -v "^\.\/\.git" | xargs gsed -i "s/georgecanning/$lowercase/g"
 find . -type d -name "georgecanning" | grep -v "^\.\/\.git\/" | while read directory
 gsed -i "s/georgecanning/$lowercase/g" .git/config
+gsed -i "s/<version>.*<\/version>/<version>0.0.1<\/version>/" pom.xml
 do
   to=`echo $directory | gsed "s/georgecanning/$lowercase/g"`
   mv $directory $to
