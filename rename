@@ -8,3 +8,5 @@ do
   mv $directory $to
   git add $to
 done
+rm rename
+git commit -a -m "Renamed project to $1"
