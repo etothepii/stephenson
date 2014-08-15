@@ -6,4 +6,5 @@ find . -type d -name "georgecanning" | grep -v "^\.\/\.git\/" | while read direc
 do
   to=`echo $directory | gsed "s/georgecanning/$lowercase/g"`
   mv $directory $to
+  git add $to
 done
