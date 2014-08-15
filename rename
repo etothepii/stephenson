@@ -1,3 +1,4 @@
 #!/bin/bash
-lowercase=`echo $1 | gsed "s/ //g" | gsed "s/.*/\L\0/"`
-echo $lowercase
+nospaces=`echo $1 | gsed "s/ //g"`
+lowercase=`echo $nospaces | gsed "s/.*/\L\0/"`
+find . -type f | grep -v "^\.\/\.git" | xargs gsed -i "s/georgecanning/$lowercase/g"
