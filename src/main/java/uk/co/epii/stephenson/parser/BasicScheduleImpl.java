@@ -11,7 +11,7 @@ import java.util.Date;
  * Time: 11:03
  */
 
-class BasicSheduleImpl implements BasicSchedule {
+class BasicScheduleImpl implements BasicSchedule {
 
   private String recordIdentity;
   private TransactionType transactionType;
@@ -40,7 +40,7 @@ class BasicSheduleImpl implements BasicSchedule {
   private String spare;
   private String stpIndicator;
 
-  BasicSheduleImpl() { }
+  BasicScheduleImpl() { }
 
   public String getRecordIdentity() {
     return recordIdentity;
@@ -250,13 +250,13 @@ class BasicSheduleImpl implements BasicSchedule {
     this.stpIndicator = stpIndicator;
   }
 
-  BasicSheduleImpl(String recordIdentity, TransactionType transactionType, String trainUniqueIdentifier,
-                   Date dateRunsFrom, Date dateRunsTo, boolean[] daysRun, String bankHolidayRunning, String trainStatus,
-                   String trainCategory, String trainIdentity, String headcode, String courseIndicator,
-                   String trainServiceCode, String portionId, String powerType, String timingLoad, String speed,
-                   String operatingCharacteristics, String trainClass, String sleepers, String reservations,
-                   String connectionIndicator, String cateringCode, String serviceBranding, String spare,
-                   String stpIndicator) {
+  BasicScheduleImpl(String recordIdentity, TransactionType transactionType, String trainUniqueIdentifier,
+                    Date dateRunsFrom, Date dateRunsTo, boolean[] daysRun, String bankHolidayRunning, String trainStatus,
+                    String trainCategory, String trainIdentity, String headcode, String courseIndicator,
+                    String trainServiceCode, String portionId, String powerType, String timingLoad, String speed,
+                    String operatingCharacteristics, String trainClass, String sleepers, String reservations,
+                    String connectionIndicator, String cateringCode, String serviceBranding, String spare,
+                    String stpIndicator) {
     this.recordIdentity = recordIdentity;
     this.transactionType = transactionType;
     this.trainUniqueIdentifier = trainUniqueIdentifier;

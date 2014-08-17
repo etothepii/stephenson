@@ -27,7 +27,7 @@ public class BasicScheduleParser extends AbstractParser<BasicSchedule> {
   @Override
   public BasicSchedule parse(String string) {
     setRawData(string);
-    BasicSheduleImpl basicSchedule = new BasicSheduleImpl();
+    BasicScheduleImpl basicSchedule = new BasicScheduleImpl();
     basicSchedule.setRecordIdentity(getNext(2));
     basicSchedule.setTransactionType(transactionTypeParser.parse(getNext(1)));
     basicSchedule.setTrainUniqueIdentifier(getNext(6));
