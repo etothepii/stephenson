@@ -20,7 +20,7 @@ public class TerminatingLocationParserTest {
 
   @Before
   public void setUp() {
-    terminatingLocationParser = new TerminatingLocationParser();
+    terminatingLocationParser = new TerminatingLocationParser(new NationalRailTimeParser(), new NationalRailTimeParser());
   }
 
   @Test
@@ -33,7 +33,7 @@ public class TerminatingLocationParserTest {
     assertEquals("Platform","2  ",actual.getPlatform());
     assertEquals("Path","   ",actual.getPath());
     assertEquals("Activity","TF          ",actual.getActivity());
-    assertEquals("Spare","                                          ",actual.getSpare());
+    assertEquals("Spare","                                           ",actual.getSpare());
   }
 
 
