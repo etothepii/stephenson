@@ -54,7 +54,7 @@ public class TrainImplTest {
 
   @Test
   public void confirmsStopsAtTerminatingLocationTest() {
-    assertTrue("Terminating", EXAMPLE_TRAIN.stops("EXETERSD "));
+    assertTrue("Terminating", EXAMPLE_TRAIN.stops("EXETRSD "));
   }
 
   @Test
@@ -69,7 +69,7 @@ public class TrainImplTest {
 
   @Test
   public void confirmsStopsAtStartingAndTerminatingLocationTest() {
-    assertTrue("Starting", EXAMPLE_TRAIN.stops("EXMOUTH ", "EXETERSD "));
+    assertTrue("Starting", EXAMPLE_TRAIN.stops("EXMOUTH ", "EXETRSD "));
   }
 
   @Test
@@ -79,7 +79,7 @@ public class TrainImplTest {
 
   @Test
   public void confirmsStopsAtIntermediateAndTerminatingLocationTest() {
-    assertTrue("Starting", EXAMPLE_TRAIN.stops("LYMPSTN ", "EXETERSD "));
+    assertTrue("Starting", EXAMPLE_TRAIN.stops("LYMPSTN ", "EXETRSD "));
   }
 
   @Test
