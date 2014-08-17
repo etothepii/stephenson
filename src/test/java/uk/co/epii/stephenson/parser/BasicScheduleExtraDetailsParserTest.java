@@ -36,8 +36,8 @@ public class BasicScheduleExtraDetailsParserTest {
     assertEquals("ATOC Code", "GW", actual.getATOCCode());
     assertEquals("Applicable Time Code", "Y", actual.getApplicableTimetableCode());
     assertEquals("RSID", "GW545400", actual.getRSID());
-    assertEquals("Data Source", null, actual.getDataSource());
-    assertEquals("Spare", null, actual.getSpare());
+    assertEquals("Data Source", " ", actual.getDataSource());
+    assertEquals("Spare", "                                                         ", actual.getSpare());
   }
 
 }

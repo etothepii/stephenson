@@ -12,6 +12,16 @@ public class BasicScheduleExtraDetailsParser extends AbstractParser<BasicSchedul
 
   @Override
   public BasicScheduleExtraDetails parse(String string) {
-    return null;
+    setRawData(string);
+    BasicScheduleExtraDetailsImpl basicScheduleExtraDetails = new BasicScheduleExtraDetailsImpl();
+    basicScheduleExtraDetails.setRecordIdentity(getNext(2));
+    basicScheduleExtraDetails.setTractionClass(getNext(4));
+    basicScheduleExtraDetails.setUICCode(getNext(5));
+    basicScheduleExtraDetails.setATOCCode(getNext(2));
+    basicScheduleExtraDetails.setApplicableTimetableCode(getNext(1));
+    basicScheduleExtraDetails.setRSID(getNext(8));
+    basicScheduleExtraDetails.setDataSource(getNext(1));
+    basicScheduleExtraDetails.setSpare(getNext(57));
+    return basicScheduleExtraDetails;
   }
 }
