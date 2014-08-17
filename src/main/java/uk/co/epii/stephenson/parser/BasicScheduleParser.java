@@ -36,6 +36,24 @@ public class BasicScheduleParser extends AbstractParser<BasicSchedule> {
     basicSchedule.setDaysRun(daysParser.parse(getNext(7)));
     basicSchedule.setBankHolidayRunning(getNext(1));
     basicSchedule.setTrainStatus(getNext(1));
+    basicSchedule.setTrainCategory(getNext(2));
+    basicSchedule.setTrainIdentity(getNext(4));
+    basicSchedule.setHeadcode(getNext(4));
+    basicSchedule.setCourseIndicator(getNext(1));
+    basicSchedule.setTrainServiceCode(getNext(8));
+    basicSchedule.setPortionId(getNext(1));
+    basicSchedule.setPowerType(getNext(3));
+    basicSchedule.setTimingLoad(getNext(4));
+    basicSchedule.setSpeed(getNext(3));
+    basicSchedule.setOperatingCharacteristics(getNext(6));
+    basicSchedule.setTrainClass(getNext(1));
+    basicSchedule.setSleepers(getNext(1));
+    basicSchedule.setReservations(getNext(1));
+    basicSchedule.setConnectionIndicator(getNext(1));
+    basicSchedule.setCateringCode(getNext(4));
+    basicSchedule.setServiceBranding(getNext(4));
+    basicSchedule.setSpare(getNext(1));
+    basicSchedule.setSTPIndicator(getNext(1));
     return basicSchedule;
   }
 }
