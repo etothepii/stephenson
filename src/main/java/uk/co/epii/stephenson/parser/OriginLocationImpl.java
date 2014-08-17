@@ -128,4 +128,65 @@ public class OriginLocationImpl implements OriginLocation {
   public void setSpare(String spare) {
     this.spare = spare;
   }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    OriginLocationImpl that = (OriginLocationImpl) o;
+
+    if (activity != null ? !activity.equals(that.activity) : that.activity != null) return false;
+    if (engineeringAllowance != null ? !engineeringAllowance.equals(that.engineeringAllowance) : that.engineeringAllowance != null)
+      return false;
+    if (line != null ? !line.equals(that.line) : that.line != null) return false;
+    if (location != null ? !location.equals(that.location) : that.location != null) return false;
+    if (pathingAllowance != null ? !pathingAllowance.equals(that.pathingAllowance) : that.pathingAllowance != null)
+      return false;
+    if (performanceAllowance != null ? !performanceAllowance.equals(that.performanceAllowance) : that.performanceAllowance != null)
+      return false;
+    if (platform != null ? !platform.equals(that.platform) : that.platform != null) return false;
+    if (publicDeparture != null ? !publicDeparture.equals(that.publicDeparture) : that.publicDeparture != null)
+      return false;
+    if (recordIdentity != null ? !recordIdentity.equals(that.recordIdentity) : that.recordIdentity != null)
+      return false;
+    if (scheduledDeparture != null ? !scheduledDeparture.equals(that.scheduledDeparture) : that.scheduledDeparture != null)
+      return false;
+    if (spare != null ? !spare.equals(that.spare) : that.spare != null) return false;
+
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = recordIdentity != null ? recordIdentity.hashCode() : 0;
+    result = 31 * result + (location != null ? location.hashCode() : 0);
+    result = 31 * result + (scheduledDeparture != null ? scheduledDeparture.hashCode() : 0);
+    result = 31 * result + (publicDeparture != null ? publicDeparture.hashCode() : 0);
+    result = 31 * result + (platform != null ? platform.hashCode() : 0);
+    result = 31 * result + (line != null ? line.hashCode() : 0);
+    result = 31 * result + (engineeringAllowance != null ? engineeringAllowance.hashCode() : 0);
+    result = 31 * result + (pathingAllowance != null ? pathingAllowance.hashCode() : 0);
+    result = 31 * result + (activity != null ? activity.hashCode() : 0);
+    result = 31 * result + (performanceAllowance != null ? performanceAllowance.hashCode() : 0);
+    result = 31 * result + (spare != null ? spare.hashCode() : 0);
+    return result;
+  }
+
+  @Override
+  public String toString() {
+    return "OriginLocationImpl{" +
+            "recordIdentity='" + recordIdentity + '\'' +
+            ", location='" + location + '\'' +
+            ", scheduledDeparture=" + scheduledDeparture +
+            ", publicDeparture=" + publicDeparture +
+            ", platform='" + platform + '\'' +
+            ", line='" + line + '\'' +
+            ", engineeringAllowance='" + engineeringAllowance + '\'' +
+            ", pathingAllowance='" + pathingAllowance + '\'' +
+            ", activity='" + activity + '\'' +
+            ", performanceAllowance='" + performanceAllowance + '\'' +
+            ", spare='" + spare + '\'' +
+            '}';
+  }
 }

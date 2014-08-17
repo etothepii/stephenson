@@ -96,4 +96,52 @@ class BasicScheduleExtraDetailsImpl implements BasicScheduleExtraDetails {
   public void setSpare(String spare) {
     this.spare = spare;
   }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    BasicScheduleExtraDetailsImpl that = (BasicScheduleExtraDetailsImpl) o;
+
+    if (applicableTimetableCode != null ? !applicableTimetableCode.equals(that.applicableTimetableCode) : that.applicableTimetableCode != null)
+      return false;
+    if (atocCode != null ? !atocCode.equals(that.atocCode) : that.atocCode != null) return false;
+    if (dataSource != null ? !dataSource.equals(that.dataSource) : that.dataSource != null) return false;
+    if (recordIdentity != null ? !recordIdentity.equals(that.recordIdentity) : that.recordIdentity != null)
+      return false;
+    if (rsid != null ? !rsid.equals(that.rsid) : that.rsid != null) return false;
+    if (spare != null ? !spare.equals(that.spare) : that.spare != null) return false;
+    if (tractionClass != null ? !tractionClass.equals(that.tractionClass) : that.tractionClass != null) return false;
+    if (uicCode != null ? !uicCode.equals(that.uicCode) : that.uicCode != null) return false;
+
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = recordIdentity != null ? recordIdentity.hashCode() : 0;
+    result = 31 * result + (tractionClass != null ? tractionClass.hashCode() : 0);
+    result = 31 * result + (uicCode != null ? uicCode.hashCode() : 0);
+    result = 31 * result + (atocCode != null ? atocCode.hashCode() : 0);
+    result = 31 * result + (applicableTimetableCode != null ? applicableTimetableCode.hashCode() : 0);
+    result = 31 * result + (rsid != null ? rsid.hashCode() : 0);
+    result = 31 * result + (dataSource != null ? dataSource.hashCode() : 0);
+    result = 31 * result + (spare != null ? spare.hashCode() : 0);
+    return result;
+  }
+
+  @Override
+  public String toString() {
+    return "BasicScheduleExtraDetailsImpl{" +
+            "recordIdentity='" + recordIdentity + '\'' +
+            ", tractionClass='" + tractionClass + '\'' +
+            ", uicCode='" + uicCode + '\'' +
+            ", atocCode='" + atocCode + '\'' +
+            ", applicableTimetableCode='" + applicableTimetableCode + '\'' +
+            ", rsid='" + rsid + '\'' +
+            ", dataSource='" + dataSource + '\'' +
+            ", spare='" + spare + '\'' +
+            '}';
+  }
 }

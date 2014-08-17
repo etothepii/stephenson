@@ -3,6 +3,7 @@ package uk.co.epii.stephenson.parser;
 import uk.co.epii.stephenson.cif.BasicSchedule;
 import uk.co.epii.stephenson.cif.TransactionType;
 
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -283,5 +284,113 @@ class BasicScheduleImpl implements BasicSchedule {
     this.serviceBranding = serviceBranding;
     this.spare = spare;
     this.stpIndicator = stpIndicator;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    BasicScheduleImpl that = (BasicScheduleImpl) o;
+
+    if (bankHolidayRunning != null ? !bankHolidayRunning.equals(that.bankHolidayRunning) : that.bankHolidayRunning != null)
+      return false;
+    if (cateringCode != null ? !cateringCode.equals(that.cateringCode) : that.cateringCode != null) return false;
+    if (connectionIndicator != null ? !connectionIndicator.equals(that.connectionIndicator) : that.connectionIndicator != null)
+      return false;
+    if (courseIndicator != null ? !courseIndicator.equals(that.courseIndicator) : that.courseIndicator != null)
+      return false;
+    if (dateRunsFrom != null ? !dateRunsFrom.equals(that.dateRunsFrom) : that.dateRunsFrom != null) return false;
+    if (dateRunsTo != null ? !dateRunsTo.equals(that.dateRunsTo) : that.dateRunsTo != null) return false;
+    if (!Arrays.equals(daysRun, that.daysRun)) return false;
+    if (headcode != null ? !headcode.equals(that.headcode) : that.headcode != null) return false;
+    if (operatingCharacteristics != null ? !operatingCharacteristics.equals(that.operatingCharacteristics) : that.operatingCharacteristics != null)
+      return false;
+    if (portionId != null ? !portionId.equals(that.portionId) : that.portionId != null) return false;
+    if (powerType != null ? !powerType.equals(that.powerType) : that.powerType != null) return false;
+    if (recordIdentity != null ? !recordIdentity.equals(that.recordIdentity) : that.recordIdentity != null)
+      return false;
+    if (reservations != null ? !reservations.equals(that.reservations) : that.reservations != null) return false;
+    if (serviceBranding != null ? !serviceBranding.equals(that.serviceBranding) : that.serviceBranding != null)
+      return false;
+    if (sleepers != null ? !sleepers.equals(that.sleepers) : that.sleepers != null) return false;
+    if (spare != null ? !spare.equals(that.spare) : that.spare != null) return false;
+    if (speed != null ? !speed.equals(that.speed) : that.speed != null) return false;
+    if (stpIndicator != null ? !stpIndicator.equals(that.stpIndicator) : that.stpIndicator != null) return false;
+    if (timingLoad != null ? !timingLoad.equals(that.timingLoad) : that.timingLoad != null) return false;
+    if (trainCategory != null ? !trainCategory.equals(that.trainCategory) : that.trainCategory != null) return false;
+    if (trainClass != null ? !trainClass.equals(that.trainClass) : that.trainClass != null) return false;
+    if (trainIdentity != null ? !trainIdentity.equals(that.trainIdentity) : that.trainIdentity != null) return false;
+    if (trainServiceCode != null ? !trainServiceCode.equals(that.trainServiceCode) : that.trainServiceCode != null)
+      return false;
+    if (trainStatus != null ? !trainStatus.equals(that.trainStatus) : that.trainStatus != null) return false;
+    if (trainUniqueIdentifier != null ? !trainUniqueIdentifier.equals(that.trainUniqueIdentifier) : that.trainUniqueIdentifier != null)
+      return false;
+    if (transactionType != that.transactionType) return false;
+
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = recordIdentity != null ? recordIdentity.hashCode() : 0;
+    result = 31 * result + (transactionType != null ? transactionType.hashCode() : 0);
+    result = 31 * result + (trainUniqueIdentifier != null ? trainUniqueIdentifier.hashCode() : 0);
+    result = 31 * result + (dateRunsFrom != null ? dateRunsFrom.hashCode() : 0);
+    result = 31 * result + (dateRunsTo != null ? dateRunsTo.hashCode() : 0);
+    result = 31 * result + (daysRun != null ? Arrays.hashCode(daysRun) : 0);
+    result = 31 * result + (bankHolidayRunning != null ? bankHolidayRunning.hashCode() : 0);
+    result = 31 * result + (trainStatus != null ? trainStatus.hashCode() : 0);
+    result = 31 * result + (trainCategory != null ? trainCategory.hashCode() : 0);
+    result = 31 * result + (trainIdentity != null ? trainIdentity.hashCode() : 0);
+    result = 31 * result + (headcode != null ? headcode.hashCode() : 0);
+    result = 31 * result + (courseIndicator != null ? courseIndicator.hashCode() : 0);
+    result = 31 * result + (trainServiceCode != null ? trainServiceCode.hashCode() : 0);
+    result = 31 * result + (portionId != null ? portionId.hashCode() : 0);
+    result = 31 * result + (powerType != null ? powerType.hashCode() : 0);
+    result = 31 * result + (timingLoad != null ? timingLoad.hashCode() : 0);
+    result = 31 * result + (speed != null ? speed.hashCode() : 0);
+    result = 31 * result + (operatingCharacteristics != null ? operatingCharacteristics.hashCode() : 0);
+    result = 31 * result + (trainClass != null ? trainClass.hashCode() : 0);
+    result = 31 * result + (sleepers != null ? sleepers.hashCode() : 0);
+    result = 31 * result + (reservations != null ? reservations.hashCode() : 0);
+    result = 31 * result + (connectionIndicator != null ? connectionIndicator.hashCode() : 0);
+    result = 31 * result + (cateringCode != null ? cateringCode.hashCode() : 0);
+    result = 31 * result + (serviceBranding != null ? serviceBranding.hashCode() : 0);
+    result = 31 * result + (spare != null ? spare.hashCode() : 0);
+    result = 31 * result + (stpIndicator != null ? stpIndicator.hashCode() : 0);
+    return result;
+  }
+
+  @Override
+  public String toString() {
+    return "BasicScheduleImpl{" +
+            "recordIdentity='" + recordIdentity + '\'' +
+            ", transactionType=" + transactionType +
+            ", trainUniqueIdentifier='" + trainUniqueIdentifier + '\'' +
+            ", dateRunsFrom=" + dateRunsFrom +
+            ", dateRunsTo=" + dateRunsTo +
+            ", daysRun=" + Arrays.toString(daysRun) +
+            ", bankHolidayRunning='" + bankHolidayRunning + '\'' +
+            ", trainStatus='" + trainStatus + '\'' +
+            ", trainCategory='" + trainCategory + '\'' +
+            ", trainIdentity='" + trainIdentity + '\'' +
+            ", headcode='" + headcode + '\'' +
+            ", courseIndicator='" + courseIndicator + '\'' +
+            ", trainServiceCode='" + trainServiceCode + '\'' +
+            ", portionId='" + portionId + '\'' +
+            ", powerType='" + powerType + '\'' +
+            ", timingLoad='" + timingLoad + '\'' +
+            ", speed='" + speed + '\'' +
+            ", operatingCharacteristics='" + operatingCharacteristics + '\'' +
+            ", trainClass='" + trainClass + '\'' +
+            ", sleepers='" + sleepers + '\'' +
+            ", reservations='" + reservations + '\'' +
+            ", connectionIndicator='" + connectionIndicator + '\'' +
+            ", cateringCode='" + cateringCode + '\'' +
+            ", serviceBranding='" + serviceBranding + '\'' +
+            ", spare='" + spare + '\'' +
+            ", stpIndicator='" + stpIndicator + '\'' +
+            '}';
   }
 }
