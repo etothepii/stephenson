@@ -8,7 +8,7 @@ import uk.co.epii.stephenson.cif.NationalRailTime;
  * Date: 17/08/2014
  * Time: 16:06
  */
-public class IntermediateLocationImpl implements IntermediateLocation {
+class IntermediateLocationImpl implements IntermediateLocation {
 
   private String recordIdentity;
   private String location;
@@ -26,9 +26,9 @@ public class IntermediateLocationImpl implements IntermediateLocation {
   private String performanceAllowance;
   private String spare;
 
-  public IntermediateLocationImpl() { }
+  IntermediateLocationImpl() { }
 
-  public IntermediateLocationImpl(String recordIdentity, String location, NationalRailTime scheduledArrival,
+  IntermediateLocationImpl(String recordIdentity, String location, NationalRailTime scheduledArrival,
                                   NationalRailTime scheduledDeparture, NationalRailTime scheduledPass,
                                   NationalRailTime publicArrival, NationalRailTime publicDeparture, String platform,
                                   String line, String path, String activity, String engineeringAllowance,

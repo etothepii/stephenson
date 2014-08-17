@@ -8,7 +8,7 @@ import uk.co.epii.stephenson.cif.TerminatingLocation;
  * Date: 17/08/2014
  * Time: 16:28
  */
-public class TerminatingLocationImpl implements TerminatingLocation {
+class TerminatingLocationImpl implements TerminatingLocation {
 
   private String recordIdentity;
   private String location;
@@ -19,10 +19,10 @@ public class TerminatingLocationImpl implements TerminatingLocation {
   private String activity;
   private String spare;
 
-  public TerminatingLocationImpl() {
+  TerminatingLocationImpl() {
   }
 
-  public TerminatingLocationImpl(String recordIdentity, String location, NationalRailTime scheduledArrival,
+  TerminatingLocationImpl(String recordIdentity, String location, NationalRailTime scheduledArrival,
                                  NationalRailTime publicArrival, String platform, String path, String activity,
                                  String spare) {
     this.recordIdentity = recordIdentity;

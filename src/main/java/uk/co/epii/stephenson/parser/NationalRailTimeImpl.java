@@ -7,7 +7,7 @@ import uk.co.epii.stephenson.cif.NationalRailTime;
  * Date: 17/08/2014
  * Time: 14:40
  */
-public class NationalRailTimeImpl implements NationalRailTime {
+class NationalRailTimeImpl implements NationalRailTime {
 
 
   private int additionalDays;
@@ -15,10 +15,10 @@ public class NationalRailTimeImpl implements NationalRailTime {
   private int minutes;
   private int seconds;
 
-  public NationalRailTimeImpl() {
+  NationalRailTimeImpl() {
   }
 
-  public NationalRailTimeImpl(int additionalDays, int hours, int minutes, int seconds) {
+  NationalRailTimeImpl(int additionalDays, int hours, int minutes, int seconds) {
     this.additionalDays = additionalDays;
     this.hours = hours;
     this.minutes = minutes;

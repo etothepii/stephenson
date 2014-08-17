@@ -10,7 +10,7 @@ import java.util.List;
  * Date: 17/08/2014
  * Time: 17:09
  */
-public class TrainImpl implements Train {
+class TrainImpl implements Train {
 
   private BasicSchedule basicSchedule;
   private BasicScheduleExtraDetails basicScheduleExtraDetails;
@@ -19,12 +19,12 @@ public class TrainImpl implements Train {
   private List<IntermediateLocation> intermediateStops;
   private TerminatingLocation terminatingLocation;
 
-  public TrainImpl() {
+  TrainImpl() {
     intermediateLocations = new ArrayList<IntermediateLocation>();
     intermediateStops = new ArrayList<IntermediateLocation>();
   }
 
-  public TrainImpl(BasicSchedule basicSchedule, BasicScheduleExtraDetails basicScheduleExtraDetails,
+  TrainImpl(BasicSchedule basicSchedule, BasicScheduleExtraDetails basicScheduleExtraDetails,
                    OriginLocation originLocation, List<IntermediateLocation> intermediateLocations,
                    List<IntermediateLocation> intermediateStops, TerminatingLocation terminatingLocation) {
     this.basicSchedule = basicSchedule;

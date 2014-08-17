@@ -8,7 +8,7 @@ import uk.co.epii.stephenson.cif.OriginLocation;
  * Date: 17/08/2014
  * Time: 15:12
  */
-public class OriginLocationImpl implements OriginLocation {
+class OriginLocationImpl implements OriginLocation {
 
   private String recordIdentity;
   private String location;
@@ -22,10 +22,10 @@ public class OriginLocationImpl implements OriginLocation {
   private String performanceAllowance;
   private String spare;
 
-  public OriginLocationImpl() {
+  OriginLocationImpl() {
   }
 
-  public OriginLocationImpl(String recordIdentity, String location, NationalRailTime scheduledDeparture,
+  OriginLocationImpl(String recordIdentity, String location, NationalRailTime scheduledDeparture,
                             NationalRailTime publicDeparture, String platform, String line, String engineeringAllowance,
                             String pathingAllowance, String activity, String performanceAllowance, String spare) {
     this.recordIdentity = recordIdentity;
