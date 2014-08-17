@@ -16,7 +16,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class TrainParserTest {
 
-  private static final TrainImpl[] EXAMPLE_TRAIN = {
+  static final TrainImpl[] EXAMPLE_TRAIN = {
           new TrainImpl(new BasicScheduleImpl("BS", TransactionType.NEW, "C41473", new Date(2014,5,18),
                   new Date(2014,12,07), new boolean[] {false, false, false, false, false, false, true}, " ", "P", "OO",
                   "2E62", "    ", "1", "25482001", " ", "DMU", "A   ", "075", "      ", "S", " ", " ", " ", "    ",

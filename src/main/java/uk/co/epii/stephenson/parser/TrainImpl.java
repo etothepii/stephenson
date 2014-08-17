@@ -15,8 +15,8 @@ class TrainImpl implements Train {
   private BasicSchedule basicSchedule;
   private BasicScheduleExtraDetails basicScheduleExtraDetails;
   private OriginLocation originLocation;
-  private List<IntermediateLocation> intermediateLocations;
-  private List<IntermediateLocation> intermediateStops;
+  private final List<IntermediateLocation> intermediateLocations;
+  private final List<IntermediateLocation> intermediateStops;
   private TerminatingLocation terminatingLocation;
 
   TrainImpl() {
@@ -27,12 +27,25 @@ class TrainImpl implements Train {
   TrainImpl(BasicSchedule basicSchedule, BasicScheduleExtraDetails basicScheduleExtraDetails,
                    OriginLocation originLocation, List<IntermediateLocation> intermediateLocations,
                    List<IntermediateLocation> intermediateStops, TerminatingLocation terminatingLocation) {
+    this();
     this.basicSchedule = basicSchedule;
     this.basicScheduleExtraDetails = basicScheduleExtraDetails;
     this.originLocation = originLocation;
-    this.intermediateLocations = intermediateLocations;
-    this.intermediateStops = intermediateStops;
+    for (IntermediateLocation location : intermediateLocations) {
+      addIntermediateLocation(location);
+    }
+    for (IntermediateLocation stop : intermediateStops) {
+      addIntermediateStop(stop);
+    }
     this.terminatingLocation = terminatingLocation;
+  }
+
+  void addIntermediateStop(IntermediateLocation stop) {
+    intermediateStops.add(stop);
+  }
+
+  public void addIntermediateLocation(IntermediateLocation location) {
+    intermediateLocations.add(location);
   }
 
   public BasicSchedule getBasicSchedule() {
@@ -59,24 +72,21 @@ class TrainImpl implements Train {
     this.originLocation = originLocation;
   }
 
-  public List<IntermediateLocation> getIntermediateLocations() {
+  public Iterable<IntermediateLocation> getIntermediateLocations() {
     return intermediateLocations;
   }
 
-  public void setIntermediateLocations(List<IntermediateLocation> intermediateLocations) {
-    this.intermediateLocations = intermediateLocations;
-  }
-
-  public List<IntermediateLocation> getIntermediateStops() {
+  public Iterable<IntermediateLocation> getIntermediateStops() {
     return intermediateStops;
-  }
-
-  public void setIntermediateStops(List<IntermediateLocation> intermediateStops) {
-    this.intermediateStops = intermediateStops;
   }
 
   public TerminatingLocation getTerminatingLocation() {
     return terminatingLocation;
+  }
+
+  @Override
+  public boolean stops(String... stations) {
+    return false;
   }
 
   public void setTerminatingLocation(TerminatingLocation terminatingLocation) {

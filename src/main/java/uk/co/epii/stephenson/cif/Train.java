@@ -13,5 +13,6 @@ public interface Train {
   public Iterable<IntermediateLocation> getIntermediateLocations();
   public Iterable<IntermediateLocation> getIntermediateStops();
   public TerminatingLocation getTerminatingLocation();
+  public boolean stops(String... stations);
 
 }
