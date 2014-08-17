@@ -14,6 +14,9 @@ public class NationalRailTimeParser extends AbstractParser<NationalRailTime> {
 
   @Override
   public NationalRailTime parse(String string) {
+    if (string.startsWith("    ")) {
+      return null;
+    }
     setRawData(string);
     NationalRailTimeImpl nationalRailTime = new NationalRailTimeImpl();
     nationalRailTime.setHours(Integer.parseInt(getNext(2)));
