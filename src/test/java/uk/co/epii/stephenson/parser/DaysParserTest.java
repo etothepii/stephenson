@@ -24,7 +24,7 @@ public class DaysParserTest {
     boolean[] actual = daysParser.parse("1111100");
     boolean[] expected = new boolean[] {true, true, true, true, true, false, false};
     for (int i = 0; i < 7; i++) {
-      assertTrue(i + "", actual == expected);
+      assertTrue(i + "", actual[i] == expected[i]);
     }
   }
 

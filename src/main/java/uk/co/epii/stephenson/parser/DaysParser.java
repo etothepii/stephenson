@@ -9,6 +9,10 @@ public class DaysParser implements Parser<boolean[]> {
 
   @Override
   public boolean[] parse(String string) {
-    return new boolean[0];
+    boolean[] days = new boolean[7];
+    for (int i = 0; i < 7; i++) {
+      days[i] = string.charAt(i) == '1';
+    }
+    return days;
   }
 }
