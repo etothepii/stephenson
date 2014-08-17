@@ -8,8 +8,18 @@ import uk.co.epii.stephenson.cif.TransactionType;
  * Time: 12:39
  */
 public class TransactionTypeParser implements Parser<TransactionType> {
+
   @Override
   public TransactionType parse(String string) {
+    if (string.equals("N")) {
+      return TransactionType.NEW;
+    }
+    else if (string.equals("D")) {
+      return TransactionType.DELETE;
+    }
+    else if (string.equals("R")) {
+      return TransactionType.REVISE;
+    }
     return null;
   }
 }
