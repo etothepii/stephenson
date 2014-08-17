@@ -19,6 +19,8 @@ public class OriginLocationParser extends AbstractLineParser<OriginLocation> {
 
   @Override
   public OriginLocation parse(String string) {
+    nationalRailTimeParser.reset();
+    publicRailTimeParser.reset();
     setRawData(string);
     OriginLocationImpl originLocation = new OriginLocationImpl();
     originLocation.setRecordIdentity(getNext(2));

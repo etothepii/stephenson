@@ -28,13 +28,17 @@ public class IntermediateLocationParser extends AbstractLineParser<IntermediateL
     intermediateLocation.setScheduledArrival(nationalRailTimeParser.parse(getNext(5)));
     intermediateLocation.setScheduledDeparture(nationalRailTimeParser.parse(getNext(5)));
     intermediateLocation.setScheduledPass(nationalRailTimeParser.parse(getNext(5)));
-    intermediateLocation.setPublicArrival(publicRailTimeParser.parse(getNext(4)));
-    intermediateLocation.setPublicDeparture(publicRailTimeParser.parse(getNext(4)));
-    if (intermediateLocation.getScheduledArrival() == null) {
-      intermediateLocation.setPublicArrival(null);
+    if (intermediateLocation.getScheduledArrival() != null) {
+      intermediateLocation.setPublicArrival(publicRailTimeParser.parse(getNext(4)));
     }
-    if (intermediateLocation.getScheduledDeparture() == null) {
-      intermediateLocation.setPublicDeparture(null);
+    else {
+      getNext(4);
+    }
+    if (intermediateLocation.getScheduledDeparture() != null) {
+      intermediateLocation.setPublicDeparture(publicRailTimeParser.parse(getNext(4)));
+    }
+    else {
+      getNext(4);
     }
     intermediateLocation.setPlatform(getNext(3));
     intermediateLocation.setLine(getNext(3));

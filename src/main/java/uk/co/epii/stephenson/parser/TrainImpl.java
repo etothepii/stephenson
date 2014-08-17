@@ -119,12 +119,12 @@ public class TrainImpl implements Train {
   @Override
   public String toString() {
     return "TrainImpl{" +
-            "basicSchedule=" + basicSchedule +
-            ", basicScheduleExtraDetails=" + basicScheduleExtraDetails +
-            ", originLocation=" + originLocation +
-            ", intermediateLocations=" + intermediateLocations +
-            ", intermediateStops=" + intermediateStops +
-            ", terminatingLocation=" + terminatingLocation +
+            "\nbasicSchedule=" + basicSchedule +
+            ", \nbasicScheduleExtraDetails=" + basicScheduleExtraDetails +
+            ", \noriginLocation=" + originLocation +
+            ", \nintermediateLocations=" + intermediateLocations +
+            ", \nintermediateStops=" + intermediateStops +
+            ", \nterminatingLocation=" + terminatingLocation +
             '}';
   }
 }

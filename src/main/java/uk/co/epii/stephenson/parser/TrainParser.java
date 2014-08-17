@@ -47,8 +47,23 @@ public class TrainParser implements StreamParser<Train> {
     }
     if (line.startsWith("BS")) {
       activeTrain = new TrainImpl();
+      activeTrain.setBasicSchedule(basicScheduleLineParser.parse(line));
+    }
+    else if (line.startsWith("BX")) {
+      activeTrain.setBasicScheduleExtraDetails(basicScheduleExtraDetailsLineParser.parse(line));
+    }
+    else if (line.startsWith("LO")) {
+      activeTrain.setOriginLocation(originLocationLineParser.parse(line));
+    }
+    else if (line.startsWith("LI")) {
+      IntermediateLocation intermediateLocation = intermediateLocationLineParser.parse(line);
+      activeTrain.getIntermediateLocations().add(intermediateLocation);
+      if (intermediateLocation.getScheduledArrival() != null) {
+        activeTrain.getIntermediateStops().add(intermediateLocation);
+      }
     }
     else if (line.startsWith("LT")) {
+      activeTrain.setTerminatingLocation(terminatingLocationLineParser.parse(line));
       for (ParseListener<Train> parseListener : parseListeners) {
         parseListener.parsed(activeTrain);
       }
