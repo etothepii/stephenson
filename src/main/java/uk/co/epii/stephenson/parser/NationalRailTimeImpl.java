@@ -86,6 +86,16 @@ public class NationalRailTimeImpl implements NationalRailTime {
   }
 
   @Override
+  public String toString() {
+    return "NationalRailTimeImpl{" +
+            "additionalDays=" + additionalDays +
+            ", hours=" + hours +
+            ", minutes=" + minutes +
+            ", seconds=" + seconds +
+            '}';
+  }
+
+  @Override
   public int hashCode() {
     int result = additionalDays;
     result = 31 * result + hours;
