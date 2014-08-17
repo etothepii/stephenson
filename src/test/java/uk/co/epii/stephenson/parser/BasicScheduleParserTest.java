@@ -22,7 +22,7 @@ public class BasicScheduleParserTest {
 
   @Before
   public void setUp() {
-    basicScheduleParser = new BasicScheduleParser(new NationalRailDateParser());
+    basicScheduleParser = new BasicScheduleParser(new NationalRailDateParser(), new TransactionTypeParser());
   }
 
   @Test

@@ -25,6 +25,10 @@ public class BasicScheduleParser implements Parser<BasicSchedule> {
   public BasicSchedule parse(String string) {
     BasicSheduleImpl basicSchedule = new BasicSheduleImpl();
     basicSchedule.setRecordIdentity(string.substring(0,2));
-    return null;
+    basicSchedule.setTransactionType(transactionTypeParser.parse(string.substring(2,3)));
+    basicSchedule.setTrainUniqueIdentifier(string.substring(3,9));
+    basicSchedule.setDateRunsFrom(dateParser.parse(string.substring(9,15)));
+    basicSchedule.setDateRunsTo(dateParser.parse(string.substring(15,21)));
+    return basicSchedule;
   }
 }
