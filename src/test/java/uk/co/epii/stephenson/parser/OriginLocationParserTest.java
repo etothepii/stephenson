@@ -20,7 +20,7 @@ public class OriginLocationParserTest {
 
   @Before
   public void setUp() {
-    originLocationParser = new OriginLocationParser();
+    originLocationParser = new OriginLocationParser(new NationalRailTimeParser());
   }
 
   @Test
@@ -34,7 +34,7 @@ public class OriginLocationParserTest {
     assertEquals("Line","   ",actual.getLine());
     assertEquals("Engineering Allowance","  ",actual.getEngineeringAllowance());
     assertEquals("Pathing Allowance","3 ",actual.getPathingAllowance());
-    assertEquals("Activity","TB            ",actual.getActivity());
+    assertEquals("Activity","TB          ",actual.getActivity());
     assertEquals("Performance Allowance","  ",actual.getPerformanceAllowance());
     assertEquals("Spare","                                     ",actual.getSpare());
   }

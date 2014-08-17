@@ -68,6 +68,29 @@ public class NationalRailTimeImpl implements NationalRailTime {
     if (seconds < o.getSeconds()) return -1;
     if (seconds > o.getSeconds()) return 1;
     return 0;
+  }
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    NationalRailTimeImpl that = (NationalRailTimeImpl) o;
+
+    if (additionalDays != that.additionalDays) return false;
+    if (hours != that.hours) return false;
+    if (minutes != that.minutes) return false;
+    if (seconds != that.seconds) return false;
+
+    return true;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = additionalDays;
+    result = 31 * result + hours;
+    result = 31 * result + minutes;
+    result = 31 * result + seconds;
+    return result;
   }
 }

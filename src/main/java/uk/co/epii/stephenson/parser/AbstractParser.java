@@ -20,9 +20,22 @@ abstract class AbstractParser<T> implements Parser<T> {
     if (positionOnString >= rawData.length()) {
       return blankString(characters);
     }
+    if (positionOnString + characters > rawData.length()) {
+      return remainingDataAndBlankString(characters);
+    }
     String next = rawData.substring(positionOnString, positionOnString + characters);
     positionOnString += characters;
     return next;
+  }
+
+  private String remainingDataAndBlankString(int characters) {
+    StringBuilder stringBuilder = new StringBuilder(characters);
+    stringBuilder.append(rawData.substring(positionOnString));
+    for (int i = stringBuilder.length(); i < characters; i++) {
+      stringBuilder.append(' ');
+    }
+    positionOnString = rawData.length();
+    return stringBuilder.toString();
   }
 
   private String blankString(int characters) {
