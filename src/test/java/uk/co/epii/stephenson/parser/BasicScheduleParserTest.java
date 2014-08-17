@@ -14,20 +14,20 @@ import static org.junit.Assert.*;
  * Date: 16/08/2014
  * Time: 14:03
  */
-public class BasicSheduleParserTest {
+public class BasicScheduleParserTest {
 
   private static final String EXAMPLE_BASIC_SCHEDULE = "BSNC405071405181412070000001 PXX1F40    125470001 DMUE   090      S            P";
 
-  private BasicSheduleParser basicSheduleParser;
+  private BasicScheduleParser basicScheduleParser;
 
   @Before
   public void setUp() {
-    basicSheduleParser = new BasicSheduleParser(new NationalRailDateParser());
+    basicScheduleParser = new BasicScheduleParser(new NationalRailDateParser());
   }
 
   @Test
   public void parsesExampleBasicSchedule() {
-    BasicSchedule basicSchedule = basicSheduleParser.parse(EXAMPLE_BASIC_SCHEDULE);
+    BasicSchedule basicSchedule = basicScheduleParser.parse(EXAMPLE_BASIC_SCHEDULE);
     assertEquals("Record Identity", "BS", basicSchedule.getRecordIdentity());
     assertEquals("Transaction Type", TransactionType.NEW, basicSchedule.getTransactionType());
     assertEquals("Train Unique Identifier", "C40507", basicSchedule.getTrainUniqueIdentifier());
