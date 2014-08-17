@@ -11,10 +11,11 @@ import uk.co.epii.stephenson.cif.OriginLocation;
 public class OriginLocationParser extends AbstractParser<OriginLocation> {
 
   private final Parser<NationalRailTime> nationalRailTimeParser;
+  private final Parser<NationalRailTime> publicRailTimeParser;
 
-  public OriginLocationParser(Parser<NationalRailTime> nationalRailTimeParser) {
+  public OriginLocationParser(Parser<NationalRailTime> nationalRailTimeParser, Parser<NationalRailTime> publicRailTimeParser) {
     this.nationalRailTimeParser = nationalRailTimeParser;
-  }
+    this.publicRailTimeParser = publicRailTimeParser;  }
 
   @Override
   public OriginLocation parse(String string) {
@@ -24,7 +25,7 @@ public class OriginLocationParser extends AbstractParser<OriginLocation> {
     originLocation.setRecordIdentity(getNext(2));
     originLocation.setLocation(getNext(8));
     originLocation.setScheduledDeparture(nationalRailTimeParser.parse(getNext(5)));
-    originLocation.setPublicDeparture(nationalRailTimeParser.parse(getNext(4)));
+    originLocation.setPublicDeparture(publicRailTimeParser.parse(getNext(4)));
     originLocation.setPlatform(getNext(3));
     originLocation.setLine(getNext(3));
     originLocation.setEngineeringAllowance(getNext(2));

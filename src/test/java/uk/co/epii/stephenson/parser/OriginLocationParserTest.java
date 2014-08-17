@@ -14,13 +14,13 @@ import static org.junit.Assert.assertEquals;
  */
 public class OriginLocationParserTest {
 
-  private static final String EXAMPLE_ORIGIN_LOCATION = "LOPHBR    2205 22054       3 TB";
+  private static final String EXAMPLE_ORIGIN_LOCATION = "LOPHBR    2205H22054       3 TB";
 
   private OriginLocationParser originLocationParser;
 
   @Before
   public void setUp() {
-    originLocationParser = new OriginLocationParser(new NationalRailTimeParser());
+    originLocationParser = new OriginLocationParser(new NationalRailTimeParser(), new NationalRailTimeParser());
   }
 
   @Test
@@ -28,7 +28,7 @@ public class OriginLocationParserTest {
     OriginLocation actual = originLocationParser.parse(EXAMPLE_ORIGIN_LOCATION);
     assertEquals("Record Identity","LO",actual.getRecordIdentity());
     assertEquals("Location","PHBR    ",actual.getLocation());
-    assertEquals("Scheduled Departure",new NationalRailTimeImpl(0, 22, 5, 0),actual.getScheduledDeparture());
+    assertEquals("Scheduled Departure",new NationalRailTimeImpl(0, 22, 5, 30),actual.getScheduledDeparture());
     assertEquals("Public Departure",new NationalRailTimeImpl(0, 22, 5, 0),actual.getPublicDeparture());
     assertEquals("Platform","4  ",actual.getPlatform());
     assertEquals("Line","   ",actual.getLine());
