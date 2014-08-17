@@ -30,6 +30,15 @@ public class NationalRailTimeParserTest {
   }
 
   @Test
+  public void parsesFirstTimeWithoutSecondsTest() {
+    NationalRailTime actual = nationalRailTimeParser.parse("0000");
+    assertEquals("Days", 0, actual.getAdditionalDays());
+    assertEquals("Hours", 0, actual.getHours());
+    assertEquals("Minutes", 0, actual.getMinutes());
+    assertEquals("Seconds", 0, actual.getSeconds());
+  }
+
+  @Test
   public void parsesLastTimeTest() {
     NationalRailTime actual = nationalRailTimeParser.parse("2359H");
     assertEquals("Days", 0, actual.getAdditionalDays());
