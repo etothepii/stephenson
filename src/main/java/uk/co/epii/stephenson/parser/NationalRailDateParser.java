@@ -8,7 +8,7 @@ import java.util.Date;
  * Time: 12:20
  */
 
-public class NationalRailDateParser extends AbstractParser<Date> {
+public class NationalRailDateParser extends AbstractLineParser<Date> {
 
   @Override
   public Date parse(String string) {

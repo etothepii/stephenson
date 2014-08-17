@@ -11,14 +11,14 @@ import java.util.Date;
  * Time: 14:00
  */
 
-public class BasicScheduleParser extends AbstractParser<BasicSchedule> {
+public class BasicScheduleParser extends AbstractLineParser<BasicSchedule> {
 
-  private final Parser<Date> dateParser;
-  private final Parser<TransactionType> transactionTypeParser;
-  private final Parser<boolean[]> daysParser;
+  private final LineParser<Date> dateParser;
+  private final LineParser<TransactionType> transactionTypeParser;
+  private final LineParser<boolean[]> daysParser;
 
-  public BasicScheduleParser(Parser<Date> dateParser, Parser<TransactionType> transactionTypeParser,
-                             Parser<boolean[]> daysParser) {
+  public BasicScheduleParser(LineParser<Date> dateParser, LineParser<TransactionType> transactionTypeParser,
+                             LineParser<boolean[]> daysParser) {
     this.dateParser = dateParser;
     this.transactionTypeParser = transactionTypeParser;
     this.daysParser = daysParser;

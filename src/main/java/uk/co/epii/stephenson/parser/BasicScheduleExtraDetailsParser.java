@@ -8,7 +8,7 @@ import uk.co.epii.stephenson.cif.BasicScheduleExtraDetails;
  * Date: 17/08/2014
  * Time: 13:52
  */
-public class BasicScheduleExtraDetailsParser extends AbstractParser<BasicScheduleExtraDetails> {
+public class BasicScheduleExtraDetailsParser extends AbstractLineParser<BasicScheduleExtraDetails> {
 
   @Override
   public BasicScheduleExtraDetails parse(String string) {

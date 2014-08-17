@@ -8,7 +8,7 @@ import uk.co.epii.stephenson.cif.NationalRailTime;
  * Time: 14:23
  */
 
-public class NationalRailTimeParser extends AbstractParser<NationalRailTime> {
+public class NationalRailTimeParser extends AbstractLineParser<NationalRailTime> {
 
   private NationalRailTime previous = null;
 

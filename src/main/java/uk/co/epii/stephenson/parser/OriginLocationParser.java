@@ -8,12 +8,12 @@ import uk.co.epii.stephenson.cif.OriginLocation;
  * Date: 17/08/2014
  * Time: 15:04
  */
-public class OriginLocationParser extends AbstractParser<OriginLocation> {
+public class OriginLocationParser extends AbstractLineParser<OriginLocation> {
 
-  private final Parser<NationalRailTime> nationalRailTimeParser;
-  private final Parser<NationalRailTime> publicRailTimeParser;
+  private final LineParser<NationalRailTime> nationalRailTimeParser;
+  private final LineParser<NationalRailTime> publicRailTimeParser;
 
-  public OriginLocationParser(Parser<NationalRailTime> nationalRailTimeParser, Parser<NationalRailTime> publicRailTimeParser) {
+  public OriginLocationParser(LineParser<NationalRailTime> nationalRailTimeParser, LineParser<NationalRailTime> publicRailTimeParser) {
     this.nationalRailTimeParser = nationalRailTimeParser;
     this.publicRailTimeParser = publicRailTimeParser;  }
 

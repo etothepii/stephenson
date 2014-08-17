@@ -8,13 +8,13 @@ import uk.co.epii.stephenson.cif.NationalRailTime;
  * Date: 17/08/2014
  * Time: 15:51
  */
-public class IntermediateLocationParser extends AbstractParser<IntermediateLocation> {
+public class IntermediateLocationParser extends AbstractLineParser<IntermediateLocation> {
 
-  private final Parser<NationalRailTime>  nationalRailTimeParser;
-  private final Parser<NationalRailTime> publicRailTimeParser;
+  private final LineParser<NationalRailTime> nationalRailTimeParser;
+  private final LineParser<NationalRailTime> publicRailTimeParser;
 
-  public IntermediateLocationParser(Parser<NationalRailTime> nationalRailTimeParser,
-                                    Parser<NationalRailTime> publicRailTimeParser) {
+  public IntermediateLocationParser(LineParser<NationalRailTime> nationalRailTimeParser,
+                                    LineParser<NationalRailTime> publicRailTimeParser) {
     this.nationalRailTimeParser = nationalRailTimeParser;
     this.publicRailTimeParser = publicRailTimeParser;
   }

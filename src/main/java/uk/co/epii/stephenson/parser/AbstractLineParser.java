@@ -6,7 +6,7 @@ package uk.co.epii.stephenson.parser;
  * Time: 13:03
  */
 
-abstract class AbstractParser<T> implements Parser<T> {
+abstract class AbstractLineParser<T> implements LineParser<T> {
 
   private String rawData;
   private int positionOnString = 0;
