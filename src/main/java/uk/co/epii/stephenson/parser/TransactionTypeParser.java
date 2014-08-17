@@ -7,7 +7,7 @@ import uk.co.epii.stephenson.cif.TransactionType;
  * Date: 17/08/2014
  * Time: 12:39
  */
-public class TransactionTypeParser implements Parser<TransactionType> {
+public class TransactionTypeParser extends AbstractParser<TransactionType> {
 
   @Override
   public TransactionType parse(String string) {

@@ -5,7 +5,7 @@ package uk.co.epii.stephenson.parser;
  * Date: 17/08/2014
  * Time: 12:52
  */
-public class DaysParser implements Parser<boolean[]> {
+public class DaysParser extends AbstractParser<boolean[]> {
 
   @Override
   public boolean[] parse(String string) {

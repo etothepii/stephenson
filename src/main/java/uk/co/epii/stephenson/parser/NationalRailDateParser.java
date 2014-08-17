@@ -8,16 +8,17 @@ import java.util.Date;
  * Time: 12:20
  */
 
-public class NationalRailDateParser implements Parser<Date> {
+public class NationalRailDateParser extends AbstractParser<Date> {
 
   @Override
   public Date parse(String string) {
     if (string.equals("999999")) {
       return null;
     }
-    int year = Integer.parseInt(string.substring(0,2));
-    int month = Integer.parseInt(string.substring(2,4));
-    int day = Integer.parseInt(string.substring(4,6));
+    setRawData(string);
+    int year = Integer.parseInt(getNext(2));
+    int month = Integer.parseInt(getNext(2));
+    int day = Integer.parseInt(getNext(2));
     if (year < 60) {
       year += 2000;
     }
