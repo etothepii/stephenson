@@ -8,5 +8,6 @@ package uk.co.epii.stephenson.parser;
 public interface Parser<T> {
 
   public T parse(String string);
+  public void reset();
 
 }

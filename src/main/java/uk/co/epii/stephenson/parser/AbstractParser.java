@@ -33,4 +33,6 @@ abstract class AbstractParser<T> implements Parser<T> {
     return stringBuilder.toString();
   }
 
+  public void reset() {}
+
 }
