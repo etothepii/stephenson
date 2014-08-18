@@ -8,5 +8,6 @@ import java.util.Set;
  * Time: 22:38
  */
 public interface Timetable {
-  public Set<Train> getTrains(String... stations);
+  public Iterable<Train> getTrains(String... stations);
+  public int size();
 }
