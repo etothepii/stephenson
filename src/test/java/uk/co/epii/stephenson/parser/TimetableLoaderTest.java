@@ -3,6 +3,9 @@ package uk.co.epii.stephenson.parser;
 import org.junit.Before;
 import org.junit.Test;
 import uk.co.epii.stephenson.cif.Timetable;
+import uk.co.epii.stephenson.cif.Train;
+
+import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -49,6 +52,10 @@ public class TimetableLoaderTest {
     Timetable timetable = timetableLoader.load(
             TimetableLoaderTest.class.getResourceAsStream("/sampleTrains.mca"));
     assertEquals("Loaded Trains", 5, timetable.size());
+    Set<Train> trains = timetable.getTrains("DIGBY   ");
+    assertEquals("Trains to Digby", 3, trains.size());
+    trains = timetable.getTrains("DIGBY   ", "TOPSHAM ");
+    assertEquals("Trains to Digby and Topsham", 2, trains.size());
   }
 
 }

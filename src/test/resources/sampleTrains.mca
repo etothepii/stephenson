@@ -103,8 +103,8 @@ LISTJAMSP 0951 0951H     095109512        T
 LIEXMOTHJ           0953 00000000                                               
 LIPOLSBDG 0954 0954H     09540954         T                                     
 LIDIGBY   0957H0958H     09580958         T                                     
-LITOPSHAM 1002 1003      10021003         T                                     
-LIEXTON   1005H1006      10051005         R                                     
+LITOPSHAM 1002 1003      10021003         T
+LIEXTON   1005H1006      10051005         R
 LILYMPSTC 1007H1008      10071007         R                                     
 LILYMPSTN 1010 1010H     10101010         T                                     
 LTEXMOUTH 1015 1015      TF                                                     
