@@ -5,8 +5,6 @@ import org.slf4j.LoggerFactory;
 import uk.co.epii.stephenson.cif.Timetable;
 import uk.co.epii.stephenson.cif.Train;
 
-import java.io.File;
-import java.io.InputStream;
 import java.util.Iterator;
 
 /**
@@ -19,7 +17,7 @@ public class TimetableLoader extends AbstractLoader<Timetable> {
   private static final Logger LOG = LoggerFactory.getLogger(TimetableLoader.class);
 
   private StreamParser<Train> trainParser;
-  private TimetableImpl activeTimetable;
+  private TimetableMemoryImpl activeTimetable;
 
   public TimetableLoader(StreamParser<Train> trainParser) {
     this.trainParser = trainParser;
@@ -40,7 +38,7 @@ public class TimetableLoader extends AbstractLoader<Timetable> {
 
   @Override
   protected Timetable process(Iterator<String> iterator) {
-    activeTimetable = new TimetableImpl();
+    activeTimetable = new TimetableMemoryImpl();
     trainParser.parse(iterator);
     return activeTimetable;
   }
