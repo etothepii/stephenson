@@ -13,12 +13,12 @@ import java.util.Set;
  * Date: 18/08/2014
  * Time: 00:50
  */
-public class TimetableImpl implements Timetable {
+public class TimetableMemoryImpl implements Timetable {
 
   private final Set<Train> allTrains;
   private final HashMap<String, Set<Train>> allTrainsGroupedByStop;
 
-  public TimetableImpl() {
+  public TimetableMemoryImpl() {
     allTrains = new HashSet<Train>();
     allTrainsGroupedByStop = new HashMap<String, Set<Train>>();
   }
