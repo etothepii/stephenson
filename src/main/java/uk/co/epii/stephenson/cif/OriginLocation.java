@@ -1,11 +1,13 @@
 package uk.co.epii.stephenson.cif;
 
+import java.io.Serializable;
+
 /**
  * User: James Robinson
  * Date: 17/08/2014
  * Time: 15:01
  */
-public interface OriginLocation {
+public interface OriginLocation extends Serializable {
 
   public String getRecordIdentity();
   public String getLocation();

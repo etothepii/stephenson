@@ -1,11 +1,13 @@
 package uk.co.epii.stephenson.cif;
 
+import java.io.Serializable;
+
 /**
  * User: James Robinson
  * Date: 17/08/2014
  * Time: 16:39
  */
-public interface Train {
+public interface Train extends Serializable {
 
   public BasicSchedule getBasicSchedule();
   public BasicScheduleExtraDetails getBasicScheduleExtraDetails();

@@ -1,5 +1,6 @@
 package uk.co.epii.stephenson.cif;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -7,7 +8,7 @@ import java.util.Date;
  * Date: 16/08/2014
  * Time: 13:44
  */
-public interface BasicSchedule {
+public interface BasicSchedule extends Serializable {
 
   public String getRecordIdentity();
   public TransactionType getTransactionType();
