@@ -9,6 +9,7 @@ import java.io.Serializable;
  */
 public interface Train extends Serializable {
 
+  public String getUniqueIdentifier();
   public BasicSchedule getBasicSchedule();
   public BasicScheduleExtraDetails getBasicScheduleExtraDetails();
   public OriginLocation getOriginLocation();

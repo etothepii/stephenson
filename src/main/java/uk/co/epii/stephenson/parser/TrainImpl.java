@@ -52,6 +52,11 @@ class TrainImpl implements Train {
     intermediateLocations.add(location);
   }
 
+  @Override
+  public String getUniqueIdentifier() {
+    return basicSchedule.getTrainUniqueIdentifier();
+  }
+
   public BasicSchedule getBasicSchedule() {
     return basicSchedule;
   }
