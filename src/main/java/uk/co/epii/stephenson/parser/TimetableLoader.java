@@ -17,7 +17,7 @@ public class TimetableLoader extends AbstractLoader<Timetable> {
   private static final Logger LOG = LoggerFactory.getLogger(TimetableLoader.class);
 
   private StreamParser<Train> trainParser;
-  private TimetableMemoryImpl activeTimetable;
+  private LoadableTimetable activeTimetable;
 
   public TimetableLoader(StreamParser<Train> trainParser) {
     this.trainParser = trainParser;
@@ -38,7 +38,7 @@ public class TimetableLoader extends AbstractLoader<Timetable> {
 
   @Override
   protected Timetable process(Iterator<String> iterator) {
-    activeTimetable = new TimetableMemoryImpl();
+    activeTimetable = new TimetableDiskImpl();
     trainParser.parse(iterator);
     return activeTimetable;
   }

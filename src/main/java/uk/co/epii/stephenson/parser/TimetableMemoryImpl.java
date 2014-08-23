@@ -13,7 +13,7 @@ import java.util.Set;
  * Date: 18/08/2014
  * Time: 00:50
  */
-public class TimetableMemoryImpl implements Timetable {
+public class TimetableMemoryImpl implements LoadableTimetable {
 
   private final Set<Train> allTrains;
   private final HashMap<String, Set<Train>> allTrainsGroupedByStop;
@@ -23,7 +23,8 @@ public class TimetableMemoryImpl implements Timetable {
     allTrainsGroupedByStop = new HashMap<String, Set<Train>>();
   }
 
-  void addTrain(Train train) {
+  @Override
+  public void addTrain(Train train) {
     allTrains.add(train);
     getStoppingAt(train.getOriginLocation().getLocation()).add(train);
     for (IntermediateLocation intermediateLocation : train.getIntermediateStops()) {
