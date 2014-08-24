@@ -57,9 +57,9 @@ public class TrainParser implements StreamParser<Train> {
     }
     else if (line.startsWith("LI")) {
       IntermediateLocation intermediateLocation = intermediateLocationLineParser.parse(line);
-      activeTrain.getIntermediateLocations().add(intermediateLocation);
+      activeTrain.addIntermediateLocation(intermediateLocation);
       if (intermediateLocation.getScheduledArrival() != null) {
-        activeTrain.getIntermediateStops().add(intermediateLocation);
+        activeTrain.addIntermediateStop(intermediateLocation);
       }
     }
     else if (line.startsWith("LT")) {
