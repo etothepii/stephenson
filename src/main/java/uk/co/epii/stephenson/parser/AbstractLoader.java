@@ -10,19 +10,11 @@ import java.util.Iterator;
  */
 public abstract class AbstractLoader<T> implements Loader<T> {
 
-
   @Override
   public T load(File file) {
     try {
-      FileReader fileReader = new FileReader(file);
-      BufferedReader bufferedReader = new BufferedReader(fileReader);
-      try {
-        return process(new BufferedReaderLineIterator(bufferedReader));
-      }
-      finally {
-        bufferedReader.close();
-        fileReader.close();
-      }
+      FileInputStream fileInputStream = new FileInputStream(file);
+      return load(file.getName(), fileInputStream);
     }
     catch (IOException ioe) {
       throw new RuntimeException(ioe);
@@ -30,7 +22,7 @@ public abstract class AbstractLoader<T> implements Loader<T> {
   }
 
   @Override
-  public T load(InputStream inputStream) {
+  public T load(String name, InputStream inputStream) {
     try {
       InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
       BufferedReader bufferedReader = new BufferedReader(inputStreamReader);

@@ -17,27 +17,10 @@ import java.util.Set;
  */
 public class TimetableDiskImpl implements LoadableTimetable {
 
-  static Properties properties;
-
-  static {
-    try {
-      properties = new Properties();
-      InputStream in = TimetableDiskImpl.class.getResourceAsStream("/data.properties");
-      properties.load(in);
-      in.close();
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    }
-  }
-
-  private static final File DEFAULT = new File(properties.getProperty("DATA_FOLDER"));
   private final File folder;
   private final Set<String> allTrains;
   private final HashMap<String, Set<String>> allTrainsGroupedByStop;
-
-  public TimetableDiskImpl() {
-    this(DEFAULT);
-  }
+  private final ObjectLoader<Train> trainLoader = new ObjectLoader<Train>();
 
   public TimetableDiskImpl(File folder) {
     this.folder = folder;
@@ -82,41 +65,12 @@ public class TimetableDiskImpl implements LoadableTimetable {
 
   private Train loadFromUniqueIdentifier(String trainUniqueIdentifier) {
     File loadFrom = new File(folder, String.format("%s.train", trainUniqueIdentifier));
-    FileInputStream fileInputStream = null;
-    ObjectInputStream objectInputStream = null;
-    try {
-      fileInputStream = new FileInputStream(loadFrom);
-      objectInputStream = new ObjectInputStream(fileInputStream);
-      return (Train)objectInputStream.readObject();
-    } catch (FileNotFoundException e) {
-      throw new RuntimeException(e);
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    } catch (ClassNotFoundException e) {
-      throw new RuntimeException(e);
-    } finally {
-      try {
-        objectInputStream.close();
-        fileInputStream.close();
-      } catch (IOException e) {
-        throw new RuntimeException(e);
-      }
-    }
+    return trainLoader.load(loadFrom);
   }
 
   private void saveWithUniqueIdentifier(Train train) {
     File saveTo = new File(folder, String.format("%s.train", train.getUniqueIdentifier()));
-    try {
-      FileOutputStream fileOutputStream = new FileOutputStream(saveTo);
-      ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
-      objectOutputStream.writeObject(train);
-      objectOutputStream.close();
-      fileOutputStream.close();
-    } catch (FileNotFoundException e) {
-      throw new RuntimeException(e);
-    } catch (IOException e) {
-      throw new RuntimeException(e);
-    }
+    trainLoader.save(saveTo, train);
   }
 
   @Override

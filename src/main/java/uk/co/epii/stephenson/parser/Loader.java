@@ -11,6 +11,6 @@ import java.io.InputStream;
 public interface Loader<T> {
 
   public T load(File file);
-  public T load(InputStream inputStream);
+  public T load(String name, InputStream inputStream);
 
 }

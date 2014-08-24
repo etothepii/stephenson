@@ -1,14 +1,17 @@
 package uk.co.epii.stephenson.parser;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.co.epii.stephenson.cif.Timetable;
 import uk.co.epii.stephenson.cif.Train;
 
+import java.io.File;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 /**
  * User: James Robinson
@@ -16,6 +19,8 @@ import static org.junit.Assert.assertTrue;
  * Time: 23:46
  */
 public class TimetableLoaderTest {
+
+  private static final Logger LOG = LoggerFactory.getLogger(TimetableLoaderTest.class);
 
   private NationalRailDateParser nationalRailDateParser;
   private TransactionTypeParser transactionTypeParser;
@@ -49,13 +54,26 @@ public class TimetableLoaderTest {
 
   @Test
   public void loadSampleTrains() {
-    Timetable timetable = timetableLoader.load(
+    Timetable timetable = timetableLoader.load("sampleTarins",
             TimetableLoaderTest.class.getResourceAsStream("/sampleTrains.mca"));
     assertEquals("Loaded Trains", 5, timetable.size());
     Set<Train> trains = timetable.getTrains("DIGBY   ");
     assertEquals("Trains to Digby", 3, trains.size());
     trains = timetable.getTrains("DIGBY   ", "TOPSHAM ");
     assertEquals("Trains to Digby and Topsham", 2, trains.size());
+  }
+
+  @Ignore
+  @Test
+  public void timeLoadAllTrains() {
+    long start = System.currentTimeMillis();
+    Timetable timetable = timetableLoader.load(new File(TimetableLoader.properties.getProperty("ALL_TRAINS")));
+    long taken = System.currentTimeMillis() - start;
+    start = System.currentTimeMillis();
+    LOG.debug("Loaded {} trains in {}ms", timetable.size(), taken);
+    Set<Train> trains = timetable.getTrains("DIGBY   ", "TOPSHAM ");
+    taken = System.currentTimeMillis() - start;
+    LOG.debug("Trains from Digby to Topsham: {} in {}ms", trains.size(), taken);
   }
 
 }
